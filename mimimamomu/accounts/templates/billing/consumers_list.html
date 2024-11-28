@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список потребителей</title>
+</head>
+<body>
+    <h1>Список потребителей</h1>
+    <a href="{% url 'add_consumer' %}">Добавить нового потребителя</a>
+    <table border="1">
+        <tr>
+            <th>Лицевой счет</th>
+            <th>ФИО</th>
+            <th>Адрес</th>
+            <th>Код участка</th>
+            <th>Действия</th>
+        </tr>
+        {% for consumer in consumers %}
+        <tr>
+            <td>{{ consumer.account_number }}</td>
+            <td>{{ consumer.full_name }}</td>
+            <td>{{ consumer.address }}</td>
+            <td>{{ consumer.section_code }}</td>
+            <td>
+                <a href="{% url 'delete_consumer' consumer.id %}">Удалить</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="{% url 'index' %}">Назад</a>
+</body>
+</html>

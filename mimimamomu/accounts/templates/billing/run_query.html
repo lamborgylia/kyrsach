@@ -1,0 +1,7 @@
+<h1>Выполнение запроса</h1>
+<form method="post">
+    {% csrf_token %}
+    <label for="query">Введите запрос:</label><br>
+    <textarea name="query" id="query" rows="4" cols="50"></textarea><br><br>
+    <button type="submit">Выполнить</button>
+</form>
